@@ -76,3 +76,5 @@ BuildingEscape/Content/StarterContent/HDRI
 
 # VS Generated Files #
 *.VC.db
+*.VC.opendb
+*.sln

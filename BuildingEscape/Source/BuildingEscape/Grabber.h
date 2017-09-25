@@ -1,10 +1,10 @@
 // Copyright Joshua George 2017
 
 #pragma once
-
-#include "CoreMinimal.h"
-#include "Engine/World.h"
+#include "Engine.h"
 #include "Components/ActorComponent.h"
+#include "Components/InputComponent.h" 
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Grabber.generated.h"
 
 
@@ -27,4 +27,27 @@ public:
 	
 private:
 	float Reach = 100.f;
+
+	FString OwnerName;
+
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+
+	UInputComponent* InputComponent = nullptr;
+
+
+	// Raycast and grab what is in reach.
+	void Grab();
+
+	void Release();
+
+	void FindPhysicsHandleComponent();
+
+	void SetupInputComponent();
+
+	FHitResult GetFirstPhysicsBodyInReach();
+
+	FVector GetLineTraceEnd();
+
+	FVector GetLineTraceStart();
 };
+
